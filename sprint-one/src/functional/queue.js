@@ -10,23 +10,25 @@ var Queue = function() {
   var dequeue = 0;
 
   someInstance.enqueue = function(value) {
-    storage[length+dequeue] = value;
+    storage[length] = value;
     length++;
+
   };
 
   someInstance.dequeue = function() {
-    var val;
     if (length > 0) {
-          val = storage[dequeue];
-    delete storage[dequeue];
-    console.log(dequeue)
-    length--;      
-    dequeue++;
+      length--;
     }
-
-    console.log(dequeue);
+    var item = storage[dequeue];
+    delete storage[dequeue];
     console.log(storage);
-    return val;
+    for (var key in storage) {
+      storage[dequeue] = storage[key];
+      dequeue++
+    }
+    dequeue = 0;
+    return item;
+
   };
 
   someInstance.size = function() {
