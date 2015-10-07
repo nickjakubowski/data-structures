@@ -3,7 +3,6 @@ var Queue = function() {
   // but try not not reference your old code in writing the new style.
   var newQueue = {};
   newQueue.length = 0;
-  newQueue.idxTracker = 0;
   _.extend(newQueue, queueMethods);
   return newQueue
 };
@@ -23,11 +22,11 @@ var queueMethods = {
     }
     var dequeued = this[0];
     delete this[0];
-    for (var key in this) {
-      this[this.idxTracker] = this[key];
-      this.idxTacker++;
+    for (var i=0; i<this.length; i++) {
+      this[i] = this[i+1];
+      // this[this.idxTracker] = this[key];
+      // this.idxTacker++;
     }
-    this.idxTacker = 0;
     return dequeued;
   }
 };
