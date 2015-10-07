@@ -21,7 +21,6 @@ var Queue = function() {
     }
     var item = storage[dequeue];
     delete storage[dequeue];
-    console.log(storage);
     for (var key in storage) {
       storage[dequeue] = storage[key];
       dequeue++
