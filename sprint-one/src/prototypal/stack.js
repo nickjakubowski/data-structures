@@ -15,7 +15,7 @@ stackMethods.size = function() {
 }
 
 stackMethods.push = function(value) {
-  this[this.length] = value
+  this[this.length] = value;
   this.length++;
 }
 
