@@ -9,7 +9,6 @@ var Queue = function() {
 
 var queueMethods = {
   size: function(){
-    console.log(this.length);
     return this.length;
   },
   enqueue: function(value) {
